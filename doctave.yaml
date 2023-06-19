@@ -2,3 +2,7 @@
 title: "Drupal 10 Documentation Made Simple"
 
 docs_dir: docs/10.x
+
+colors:
+  main: #009cde
+

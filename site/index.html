@@ -13,16 +13,16 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="/assets/normalize.css?v=1687027402"
+    <link rel="stylesheet" type="text/css" href="/assets/normalize.css?v=1687162513"
         media="screen" />
-    <link rel="stylesheet" type="text/css" href="/assets/doctave-style.css?v=1687027402"
+    <link rel="stylesheet" type="text/css" href="/assets/doctave-style.css?v=1687162513"
         media="screen" />
-    <link rel="stylesheet" type="text/css" href="/assets/katex.css?v=1687027402" media="screen" />
-    <link rel="stylesheet" type="text/css" href="/assets/prism-ghcolors.css?v=1687027402"
+    <link rel="stylesheet" type="text/css" href="/assets/katex.css?v=1687162513" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/assets/prism-ghcolors.css?v=1687162513"
         media="screen" />
 
     <script>
-        var DOCTAVE_TIMESTAMP = "1687027402";
+        var DOCTAVE_TIMESTAMP = "1687162513";
         var BASE_PATH = "/";
         var color = localStorage.getItem('doctave-color')
 
@@ -69,7 +69,22 @@
                 <nav class='site-nav'>
     <ul>
         
-            <li><a href="/examples">examples</a></li>
+            <li><a href="/configuration">Configuration</a></li>
+            
+        
+            <li><a href="/controllers">Controllers in Drupal</a></li>
+            
+        
+            <li><a href="/lifecycle">Introduction to Drupal</a></li>
+            
+        
+            <li><a href="/middleware">Middleware in Drupal</a></li>
+            
+        
+            <li><a href="/routing">Routing in Drupal</a></li>
+            
+        
+            <li><a href="/structure">Structure</a></li>
             
         
     </ul>
@@ -86,132 +101,128 @@
 
             </div>
             <div class='doctave-content'>
-                <h1 id="drupal-documentation">Drupal Documentation</h1>
-<p>Welcome to the Drupal documentation! This guide aims to provide you with an overview of Drupal, its concepts, and how to develop websites using Drupal. While this documentation is inspired by Laravel, it focuses specifically on Drupal and its unique features.</p>
-<h2 id="table-of-contents">Table of Contents</h2>
-<h2 id="1.-introduction-to-drupal">1. Introduction to Drupal</h2>
-<p>Drupal is a powerful and flexible open-source content management system (CMS) written in PHP. It allows you to build and manage websites, from simple blogs to complex enterprise applications. Drupal provides a robust architecture, extensive module ecosystem, and a flexible theming system.</p>
-<h2 id="2.-installation">2. Installation</h2>
-<p>To install Drupal, follow these steps:</p>
-<ol>
-<li>Download the latest version of Drupal from the official website.</li>
-<li>Extract the downloaded files to your web server.</li>
-<li>Create a new database for your Drupal installation.</li>
-<li>Open your web browser and navigate to the Drupal installation URL.</li>
-<li>Follow the on-screen instructions to complete the installation process.</li>
-</ol>
-<h2 id="3.-routing">3. Routing</h2>
-<p>In Drupal, routing maps URLs to controller functions. The routing system determines which controller should handle a specific URL. Routes are defined in YAML files located in the <code>mymodule.routing.yml</code> file.</p>
-<p>Here's an example of a route definition:</p>
-<pre><code class="language-yaml">mymodule.myroute:
-  path: '/myroute'
-  defaults:
-    _controller: '\Drupal\mymodule\Controller\MyController::myMethod'
-    _title: 'My Page Title'
-  requirements:
-    _permission: 'access content'
-</code></pre>
-<p>In the above example, the <code>/myroute</code> URL is mapped to the <code>myMethod</code> method in the <code>MyController</code> class of the <code>mymodule</code> module.</p>
-<h2 id="4.-controllers">4. Controllers</h2>
-<p>Controllers in Drupal handle the logic for processing requests and generating responses. Controllers are PHP classes that extend the <code>ControllerBase</code> class. They are responsible for rendering views, processing forms, and performing other actions.</p>
-<p>Here's an example of a basic controller in Drupal:</p>
-<pre><code class="language-php">namespace Drupal\mymodule\Controller;
-
-use Drupal\Core\Controller\ControllerBase;
-
-class MyController extends ControllerBase {
-  public function myMethod() {
-    // Controller logic goes here.
-    return [
-      '#markup' =&gt; $this-&gt;t('Hello, Drupal!'),
-    ];
-  }
-}
-</code></pre>
-<h2 id="5.-views">5. Views</h2>
-<p>Views in Drupal are responsible for rendering content. They define the presentation layer of your Drupal site. Views are typically defined using Twig templates, which separate the presentation logic from the PHP code.</p>
-<p>Here's an example of a Twig template file:</p>
-<pre><code class="language-twig">{# themes/mytheme/templates/mytemplate.html.twig #}
-&lt;h1&gt;{{ title }}&lt;/h1&gt;
-&lt;p&gt;{{ content }}&lt;/p&gt;
-</code></pre>
-<p>To render a view from a controller, use the following code:</p>
-<pre><code class="language-php">return [
-  '#theme' =&gt; 'mytemplate',
-  '#title' =&gt; $this-&gt;t('My Page'),
-  '#content' =&gt; $this-&gt;t('Welcome to my page!'),
-];
-</code></pre>
-<h2 id="6.-models">6. Models</h2>
-<p>Drupal follows an entity-based architecture, where models are represented by entities. Entities are objects that represent a piece of content, such as a node or a user. Drupal provides a powerful Entity API for creating, updating, and querying entities.</p>
-<p>To define a custom entity in</p>
-<p>Drupal, you need to create a new module and define the entity schema, storage, and controller.</p>
-<h2 id="7.-database">7. Database</h2>
-<p>Drupal uses a database abstraction layer called the Database API. The API provides a consistent way to interact with the database, regardless of the underlying database system.</p>
-<p>You can use the Database API to execute queries, insert or update data, and manage database transactions.</p>
-<h2 id="8.-forms">8. Forms</h2>
-<p>Forms in Drupal allow you to create and handle HTML forms. Drupal's Form API provides a set of functions and classes for building and processing forms. You can define forms, add form elements, and validate user input.</p>
-<p>Here's an example of a simple form definition:</p>
-<pre><code class="language-php">namespace Drupal\mymodule\Form;
-
-use Drupal\Core\Form\FormBase;
-use Drupal\Core\Form\FormStateInterface;
-
-class MyForm extends FormBase {
-  public function getFormId() {
-    return 'mymodule_myform';
-  }
-
-  public function buildForm(array $form, FormStateInterface $form_state) {
-    $form['name'] = [
-      '#type' =&gt; 'textfield',
-      '#title' =&gt; $this-&gt;t('Your Name'),
-      '#required' =&gt; true,
-    ];
-    $form['submit'] = [
-      '#type' =&gt; 'submit',
-      '#value' =&gt; $this-&gt;t('Submit'),
-    ];
-    return $form;
-  }
-
-  public function submitForm(array &amp;$form, FormStateInterface $form_state) {
-    $name = $form_state-&gt;getValue('name');
-    // Process form submission.
-  }
-}
-</code></pre>
-<h2 id="9.-modules">9. Modules</h2>
-<p>Modules are an essential part of Drupal's extensibility. They allow you to add new functionality to your Drupal site. Modules can define new content types, provide additional fields, integrate with third-party services, and more.</p>
-<p>To create a custom module, follow these steps:</p>
-<ol>
-<li>Create a new directory in the <code>modules</code> directory.</li>
-<li>Create a <code>.info.yml</code> file to define your module's metadata.</li>
-<li>Create a <code>my_module.module</code> file to define hooks and implement custom functionality.</li>
-</ol>
-<h2 id="10.-themes">10. Themes</h2>
-<p>Themes in Drupal control the visual appearance of your website. They provide templates, stylesheets, and other assets to define the site's layout and design.</p>
-<p>To create a custom theme in Drupal, follow these steps:</p>
-<ol>
-<li>Create a new directory in the <code>themes</code> directory.</li>
-<li>Create a <code>.info.yml</code> file to define your theme's metadata.</li>
-<li>Create Twig templates to define the HTML structure of your theme.</li>
-</ol>
-<h2 id="11.-security">11. Security</h2>
-<p>Security is of utmost importance when developing Drupal websites. Follow these best practices to enhance the security of your Drupal application:</p>
+                <h1 id="introduction-to-drupal">Introduction to Drupal</h1>
+<p>Welcome to the immersive journey into Drupal, an extraordinary open-source content management system (CMS) built in PHP. Our comprehensive documentation takes you by the hand, unraveling the core concepts, features, and components of Drupal in an easily understandable manner. With this user-friendly guide, you'll gain profound insights into Drupal's architecture, empowering you to confidently embark on website development with Drupal's flexible and robust capabilities. Get ready to unleash your creativity and harness the true potential of Drupal!</p>
+<h2 id="meet-drupal">Meet Drupal</h2>
+<h3 id="why-choose-drupal?">Why Choose Drupal?</h3>
 <ul>
-<li>Keep Drupal core and contributed modules up to date.</li>
-<li>Use strong passwords for user accounts.</li>
-<li>Implement secure coding practices.</li>
-<li>Sanitize and validate user input to prevent SQL injection and cross-site scripting (XSS) attacks.</li>
-<li>Follow Drupal's security advisories and apply patches promptly.</li>
+<li>Flexibility and Scalability: Drupal's modular architecture allows you to build websites of any size or complexity, from simple blogs to enterprise-level applications.</li>
+<li>Extensive Module Ecosystem: Drupal offers a vast collection of modules that provide ready-made functionality, allowing you to extend and customize your site without reinventing the wheel.</li>
+<li>Robust Content Management: Drupal excels at managing structured content, including complex data models, taxonomies, and relationships.</li>
+<li>Community and Support: Drupal has a large and active community of developers and users who contribute to its growth and provide support through forums, documentation, and events.</li>
 </ul>
-<h2 id="12.-testing">12. Testing</h2>
-<p>Drupal provides a testing framework for automated testing of your code. You can write tests to ensure the correctness of your custom modules, themes, and other components.</p>
-<p>The Drupal testing framework supports unit tests, functional tests, and integration tests. You can use tools like PHPUnit and Drupal's built-in testing tools to write and execute tests.</p>
-<h2 id="conclusion">Conclusion</h2>
-<p>This documentation provides a high-level overview of Drupal and its key concepts. It covers installation, routing, controllers, views, models, database interactions, forms, modules, themes, security, and testing.</p>
-<p>For more detailed information and in-depth tutorials, refer to the official Drupal documentation available at <a href="https://www.drupal.org/docs">https://www.drupal.org/docs</a>. Happy Drupal development!</p>
+<h3 id="key-features-of-drupal">Key Features of Drupal</h3>
+<ul>
+<li>
+<p>Content Management: Create, edit, and organize content with ease using Drupal's intuitive admin interface.</p>
+</li>
+<li>
+<p>User Management: Manage user accounts, roles, and permissions to control access and permissions.</p>
+</li>
+<li>
+<p>Theming and Front-end Flexibility: Customize the look and feel of your site using Drupal's powerful theming system and responsive design capabilities.</p>
+</li>
+<li>
+<p>Extensibility and Modularity: Extend Drupal's functionality by leveraging thousands of contributed modules or by developing your own custom modules.</p>
+</li>
+<li>
+<p>Scalability and Performance: Drupal is built to handle high-traffic websites and can scale to meet the demands of your growing site.</p>
+</li>
+<li>
+<p>Security: Drupal prioritizes security and follows best practices to ensure a secure web environment.</p>
+</li>
+<li>
+<p>Multilingual Support: Create multilingual websites with built-in translation capabilities.</p>
+</li>
+<li>
+<p>Accessibility: Drupal is committed to accessibility standards, ensuring that your website is usable by everyone.</p>
+</li>
+</ul>
+<h2 id="setting-up-your-environment">Setting Up Your Environment</h2>
+<h3 id="system-requirements">System Requirements</h3>
+<p>Before installing Drupal 9.x or 10.x, ensure that your system meets the following requirements:</p>
+<ul>
+<li>Web server (e.g., Apache, Nginx)</li>
+<li>PHP 7.4 or later</li>
+<li>MySQL 5.7.8 or later, or MariaDB 10.3.7 or later, or PostgreSQL 10 or later</li>
+<li>Composer (PHP package manager)</li>
+</ul>
+<blockquote>
+<p><strong><em>NOTE:</em></strong>
+These requirements specifically apply to Drupal versions 9.x and 10.x. If you are installing an earlier version of Drupal, please refer to the respective documentation for the appropriate system requirements.</p>
+<ol>
+<li>Drupal 10 requires at least PHP 8.1. PHP 8.1.6 is recommended.</li>
+<li>Drupal 9.4 dropped official support for PHP 7.3. Sites on PHP 7.3 may still be installed and updated to Drupal 9.4 (with a warning), but their security coverage is not guaranteed unless they update to at least PHP 7.4.</li>
+</ol>
+<p>Please make sure your system meets these requirements to ensure a smooth installation and optimal performance of Drupal 9.x or 10.x.</p>
+</blockquote>
+<h2 id="installing-drupal-on-macos,-windows,-and-linux">Installing Drupal on macOS, Windows, and Linux</h2>
+<p>To install Drupal on macOS, Windows, or Linux, follow these general steps:</p>
+<ol>
+<li>
+<p><strong>System Requirements</strong>: Before installing Drupal, ensure that your system meets the minimum requirements. Refer to the System Requirements section for more information.</p>
+</li>
+<li>
+<p><strong>Install and Configure Web Server and PHP</strong>: Set up and configure a web server (such as Apache or Nginx) and PHP on your operating system. Refer to the respective documentation for your specific operating system on how to install and configure these components.</p>
+</li>
+<li>
+<p><strong>Install Composer</strong>: Install Composer, the PHP package manager, on your system. Composer is required to manage Drupal's dependencies and facilitate the installation process.</p>
+</li>
+<li>
+<p><strong>Create a New Drupal Project</strong>: Use Composer to create a new Drupal project. Open your terminal or command prompt and run the following command:</p>
+<pre><code>composer create-project drupal/recommended-project mydrupal
+</code></pre>
+<p>This command will create a new Drupal project in a directory named "<code>mydrupal</code>" (you can change this to your preferred directory name).</p>
+</li>
+<li>
+<p><strong>Set Up a Virtual Host</strong>: Configure a virtual host in your web server configuration that points to the "web" directory of your Drupal installation. This step may vary depending on your web server and operating system. Refer to the documentation of your specific web server for instructions on setting up a virtual host.</p>
+</li>
+<li>
+<p><strong>Complete the Drupal Installation</strong>: Access your site through a web browser by visiting the configured virtual host (e.g., http://mydrupal.local). Follow the on-screen instructions to complete the Drupal installation process. During the installation, you will need to provide database credentials and configure the site's initial settings.</p>
+</li>
+</ol>
+<p>By following these steps, you can install Drupal on macOS, Windows, or Linux. The general process remains the same, but make sure to refer to the specific documentation for your web server and operating system for any platform-specific instructions or configurations.</p>
+<h2 id="optimizing-and-securing-your-drupal-site">Optimizing and Securing Your Drupal Site</h2>
+<h3 id="performance-optimization-techniques">Performance Optimization Techniques</h3>
+<ul>
+<li>Caching Strategies: Configure caching to improve the performance of your Drupal site.</li>
+<li>Image Optimization: Optimize images to reduce file size and improve page load times.</li>
+<li>Database Optimization: Optimize your database queries and configuration for better performance.</li>
+</ul>
+<h3 id="caching-strategies-in-drupal">Caching Strategies in Drupal</h3>
+<ul>
+<li>Page Caching: Enable and configure Drupal's built-in page caching mechanism.</li>
+<li>Block Caching: Control block caching to improve performance for dynamic content.</li>
+<li>External Caching: Explore options for utilizing external caching systems, such as Varnish or CDNs.</li>
+</ul>
+<h3 id="implementing-security-best-practices">Implementing Security Best Practices</h3>
+<ul>
+<li>User Authentication: Implement strong password policies and enforce secure user authentication.</li>
+<li>Security Updates: Stay updated with the latest security releases and apply patches promptly.</li>
+<li>Secure Coding Practices: Follow Drupal's coding standards and security best practices to prevent common vulnerabilities.</li>
+</ul>
+<h2 id="maintenance-and-troubleshooting">Maintenance and Troubleshooting</h2>
+<h3 id="managing-updates-and-upgrades">Managing Updates and Upgrades</h3>
+<ul>
+<li>Updating Drupal Core: Learn how to update Drupal core to the latest stable version.</li>
+<li>Module Updates: Update contributed modules to benefit from bug fixes and new features.</li>
+<li>Upgrading Drupal: Understand the process of upgrading your Drupal site from one major version to another.</li>
+</ul>
+<h3 id="debugging-and-troubleshooting-drupal">Debugging and Troubleshooting Drupal</h3>
+<ul>
+<li>Debugging Techniques: Learn how to debug and troubleshoot common issues in Drupal using logging, error messages, and debugging tools.</li>
+<li>Site Audit and Performance Monitoring: Perform regular site audits and monitor performance to identify and resolve issues.</li>
+</ul>
+<h3 id="drupal-community-and-support-resources">Drupal Community and Support Resources</h3>
+<ul>
+<li>Drupal Community: Engage with the Drupal community through forums, events, and user groups</li>
+</ul>
+<p>.</p>
+<ul>
+<li>Documentation and Online Resources: Access online documentation, tutorials, and resources to enhance your Drupal skills.</li>
+<li>Support Channels: Seek assistance and support from the Drupal community and professional support services when needed.</li>
+</ul>
+<p>Congratulations! You have completed the detailed introduction to Drupal. This documentation provides a solid foundation to begin building websites using Drupal's powerful features and flexible architecture. Explore further documentation, engage with the Drupal community, and continue learning to unlock the full potential of Drupal for your projects. Happy Drupal development!</p>
 
             </div>
             <div class='sidebar-right'>
@@ -220,63 +231,63 @@ class MyForm extends FormBase {
                     <ul>
                         
                         <li class='page-nav-level-1'>
-                            <a href='#drupal-documentation'>Drupal Documentation</a>
+                            <a href='#introduction-to-drupal'>Introduction to Drupal</a>
                         </li>
                         
                         <li class='page-nav-level-2'>
-                            <a href='#table-of-contents'>Table of Contents</a>
+                            <a href='#meet-drupal'>Meet Drupal</a>
+                        </li>
+                        
+                        <li class='page-nav-level-3'>
+                            <a href='#why-choose-drupal?'>Why Choose Drupal?</a>
+                        </li>
+                        
+                        <li class='page-nav-level-3'>
+                            <a href='#key-features-of-drupal'>Key Features of Drupal</a>
                         </li>
                         
                         <li class='page-nav-level-2'>
-                            <a href='#1.-introduction-to-drupal'>1. Introduction to Drupal</a>
+                            <a href='#setting-up-your-environment'>Setting Up Your Environment</a>
+                        </li>
+                        
+                        <li class='page-nav-level-3'>
+                            <a href='#system-requirements'>System Requirements</a>
                         </li>
                         
                         <li class='page-nav-level-2'>
-                            <a href='#2.-installation'>2. Installation</a>
+                            <a href='#installing-drupal-on-macos,-windows,-and-linux'>Installing Drupal on macOS, Windows, and Linux</a>
                         </li>
                         
                         <li class='page-nav-level-2'>
-                            <a href='#3.-routing'>3. Routing</a>
+                            <a href='#optimizing-and-securing-your-drupal-site'>Optimizing and Securing Your Drupal Site</a>
+                        </li>
+                        
+                        <li class='page-nav-level-3'>
+                            <a href='#performance-optimization-techniques'>Performance Optimization Techniques</a>
+                        </li>
+                        
+                        <li class='page-nav-level-3'>
+                            <a href='#caching-strategies-in-drupal'>Caching Strategies in Drupal</a>
+                        </li>
+                        
+                        <li class='page-nav-level-3'>
+                            <a href='#implementing-security-best-practices'>Implementing Security Best Practices</a>
                         </li>
                         
                         <li class='page-nav-level-2'>
-                            <a href='#4.-controllers'>4. Controllers</a>
+                            <a href='#maintenance-and-troubleshooting'>Maintenance and Troubleshooting</a>
                         </li>
                         
-                        <li class='page-nav-level-2'>
-                            <a href='#5.-views'>5. Views</a>
+                        <li class='page-nav-level-3'>
+                            <a href='#managing-updates-and-upgrades'>Managing Updates and Upgrades</a>
                         </li>
                         
-                        <li class='page-nav-level-2'>
-                            <a href='#6.-models'>6. Models</a>
+                        <li class='page-nav-level-3'>
+                            <a href='#debugging-and-troubleshooting-drupal'>Debugging and Troubleshooting Drupal</a>
                         </li>
                         
-                        <li class='page-nav-level-2'>
-                            <a href='#7.-database'>7. Database</a>
-                        </li>
-                        
-                        <li class='page-nav-level-2'>
-                            <a href='#8.-forms'>8. Forms</a>
-                        </li>
-                        
-                        <li class='page-nav-level-2'>
-                            <a href='#9.-modules'>9. Modules</a>
-                        </li>
-                        
-                        <li class='page-nav-level-2'>
-                            <a href='#10.-themes'>10. Themes</a>
-                        </li>
-                        
-                        <li class='page-nav-level-2'>
-                            <a href='#11.-security'>11. Security</a>
-                        </li>
-                        
-                        <li class='page-nav-level-2'>
-                            <a href='#12.-testing'>12. Testing</a>
-                        </li>
-                        
-                        <li class='page-nav-level-2'>
-                            <a href='#conclusion'>Conclusion</a>
+                        <li class='page-nav-level-3'>
+                            <a href='#drupal-community-and-support-resources'>Drupal Community and Support Resources</a>
                         </li>
                         
                     </ul>
@@ -298,11 +309,11 @@ class MyForm extends FormBase {
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="/assets/katex.js?v=1687027402"></script>
-    <script type="text/javascript" src="/assets/mermaid.js?v=1687027402"></script>
-    <script type="text/javascript" src="/assets/elasticlunr.js?v=1687027402"></script>
-    <script type="text/javascript" src="/assets/prism.js?v=1687027402"></script>
-    <script type="text/javascript" src="/assets/doctave-app.js?v=1687027402"></script>
+    <script type="text/javascript" src="/assets/katex.js?v=1687162513"></script>
+    <script type="text/javascript" src="/assets/mermaid.js?v=1687162513"></script>
+    <script type="text/javascript" src="/assets/elasticlunr.js?v=1687162513"></script>
+    <script type="text/javascript" src="/assets/prism.js?v=1687162513"></script>
+    <script type="text/javascript" src="/assets/doctave-app.js?v=1687162513"></script>
 
     
 </body>
