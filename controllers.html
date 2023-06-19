@@ -1,0 +1,239 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Controllers in Drupal</title>
+    <meta name="description" content="Documentation for Drupal 10 Documentation Made Simple">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/assets/normalize.css?v=1687162513"
+        media="screen" />
+    <link rel="stylesheet" type="text/css" href="/assets/doctave-style.css?v=1687162513"
+        media="screen" />
+    <link rel="stylesheet" type="text/css" href="/assets/katex.css?v=1687162513" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/assets/prism-ghcolors.css?v=1687162513"
+        media="screen" />
+
+    <script>
+        var DOCTAVE_TIMESTAMP = "1687162513";
+        var BASE_PATH = "/";
+        var color = localStorage.getItem('doctave-color')
+
+        if (color === 'dark') {
+            document.getElementsByTagName('html')[0].classList.remove('light');
+            document.getElementsByTagName('html')[0].classList.add('dark');
+        } else {
+            document.getElementsByTagName('html')[0].classList.remove('dark');
+            document.getElementsByTagName('html')[0].classList.add('light');
+        }
+    </script>
+
+    
+</head>
+
+<body>
+    <label for='menu-toggle-switch' class='menu-toggle-button'>
+        ☰
+    </label>
+    <input type="checkbox" id="menu-toggle-switch" value='0' />
+    <div class='page'>
+        <div class='header'>
+            <div class='logo'>
+                
+                <h2 class='project-name'>
+                    <a href="/">
+                        Drupal 10 Documentation Made Simple
+                    </a>
+                </h2>
+            </div>
+            <div class='search'>
+                <form id='search-form'>
+    <input type='text' id='search-box' autocomplete="off" placeholder="Search..."></input>
+    <span class='search-icon'>S</span>
+    <ul id='search-results'></ul>
+</form>
+
+            </div>
+            <div class='header-dummy-right'>
+            </div>
+        </div>
+        <div class='container'>
+            <div class='sidebar-left'>
+                <nav class='site-nav'>
+    <ul>
+        
+            <li><a href="/configuration">Configuration</a></li>
+            
+        
+            <li><a class="active" href="/controllers">Controllers in Drupal</a></li>
+            
+        
+            <li><a href="/lifecycle">Introduction to Drupal</a></li>
+            
+        
+            <li><a href="/middleware">Middleware in Drupal</a></li>
+            
+        
+            <li><a href="/routing">Routing in Drupal</a></li>
+            
+        
+            <li><a href="/structure">Structure</a></li>
+            
+        
+    </ul>
+    <span id='light-dark-mode-switch'>
+        <svg xmlns="http://www.w3.org/2000/svg" id="dark-mode-icon" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+        </svg>
+
+        <svg xmlns="http://www.w3.org/2000/svg" id="light-mode-icon" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" />
+        </svg>
+    </span>
+</nav>
+
+            </div>
+            <div class='doctave-content'>
+                <h1 id="controllers-in-drupal">Controllers in Drupal</h1>
+<p>Controllers play a central role in handling and processing requests in Drupal. They are responsible for generating the content and managing the business logic for different pages and actions within your Drupal application. Understanding controllers is essential for developing custom modules and extending Drupal's functionality. This page will guide you through the concepts and best practices of working with controllers in Drupal.</p>
+<h2 id="introduction-to-controllers">Introduction to Controllers</h2>
+<p>In Drupal, controllers are PHP classes that encapsulate the logic for generating the content of a page or handling a specific action. Controllers follow the Controller pattern, where each controller class represents a specific page or action in your application.</p>
+<h2 id="creating-a-controller">Creating a Controller</h2>
+<p>To create a controller in Drupal, you need to define a class that extends the base controller class provided by Drupal. Here's an example of a simple controller class:</p>
+<pre><code class="language-php">namespace Drupal\my_module\Controller;
+
+use Drupal\Core\Controller\ControllerBase;
+
+class MyController extends ControllerBase {
+
+  public function content() {
+    // Generate and return the content for the page.
+    return [
+      '#markup' =&gt; $this-&gt;t('Hello, Drupal!'),
+    ];
+  }
+
+}
+</code></pre>
+<p>In this example, the <code>MyController</code> class extends the <code>ControllerBase</code> class. The <code>content()</code> method generates and returns the content for the page. In this case, it simply displays the "Hello, Drupal!" message.</p>
+<h2 id="defining-routes-for-controllers">Defining Routes for Controllers</h2>
+<p>To associate a controller with a specific URL or route, you need to define a route in your module's routing YAML file. Here's an example:</p>
+<pre><code class="language-yaml">my_module.route:
+  path: '/my-route'
+  defaults:
+    _controller: '\Drupal\my_module\Controller\MyController::content'
+    _title: 'My Page'
+  requirements:
+    _permission: 'access content'
+</code></pre>
+<p>In this example, the <code>my_module.route</code> route is associated with the <code>MyController</code> class and its <code>content()</code> method. The <code>_title</code> key sets the title of the page. The <code>_permission</code> key specifies the required permission to access the page.</p>
+<h2 id="dependency-injection-in-controllers">Dependency Injection in Controllers</h2>
+<p>Controllers in Drupal can leverage dependency injection to access various services and resources provided by the Drupal core or other modules. By type-hinting the required dependencies in the controller's constructor or methods, Drupal's dependency injection container will automatically provide the corresponding instances. Here's an example:</p>
+<pre><code class="language-php">namespace Drupal\my_module\Controller;
+
+use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Database\Connection;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+
+class MyController extends ControllerBase {
+
+  protected $database;
+  protected $entityTypeManager;
+
+  public function __construct(Connection $database, EntityTypeManagerInterface $entityTypeManager) {
+    $this-&gt;database = $database;
+    $this-&gt;entityTypeManager = $entityTypeManager;
+  }
+
+  public function content() {
+    // Access the services and resources.
+    // ...
+  }
+
+}
+</code></pre>
+<p>In this example, the <code>Connection</code> and <code>EntityTypeManagerInterface</code> services are injected into the controller's constructor. They can then be accessed within the controller's methods.</p>
+<h2 id="returning-a-response">Returning a Response</h2>
+<p>Controllers in Drupal typically return a render array or a response object that represents the generated content. Here's an example:</p>
+<pre><code class="language-php">public function content() {
+  // Generate and return the content for the page.
+  return [
+    '#markup' =&gt; $this-&gt;t('Hello, Drupal!'),
+  ];
+}
+</code></pre>
+<p>In this example, the <code>content()</code> method returns a render array with a <code>#markup</code> key, which contains the "Hello, Drupal!" message.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Controllers are an integral part of handling requests and generating content in Drupal. By creating controller classes, defining routes, and leveraging dependency injection, you can build custom pages and actions within your Drupal modules. Controllers</p>
+<p>provide a structured and object-oriented approach, allowing for better code organization and separation of concerns. Understanding and utilizing controllers will empower you to develop custom modules and extend Drupal's functionality to meet your specific requirements.</p>
+
+            </div>
+            <div class='sidebar-right'>
+                <div class='page-nav' id='page-nav'>
+                    <p class='page-nav-header'>On this page</p>
+                    <ul>
+                        
+                        <li class='page-nav-level-1'>
+                            <a href='#controllers-in-drupal'>Controllers in Drupal</a>
+                        </li>
+                        
+                        <li class='page-nav-level-2'>
+                            <a href='#introduction-to-controllers'>Introduction to Controllers</a>
+                        </li>
+                        
+                        <li class='page-nav-level-2'>
+                            <a href='#creating-a-controller'>Creating a Controller</a>
+                        </li>
+                        
+                        <li class='page-nav-level-2'>
+                            <a href='#defining-routes-for-controllers'>Defining Routes for Controllers</a>
+                        </li>
+                        
+                        <li class='page-nav-level-2'>
+                            <a href='#dependency-injection-in-controllers'>Dependency Injection in Controllers</a>
+                        </li>
+                        
+                        <li class='page-nav-level-2'>
+                            <a href='#returning-a-response'>Returning a Response</a>
+                        </li>
+                        
+                        <li class='page-nav-level-2'>
+                            <a href='#conclusion'>Conclusion</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class='wave-container'>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                    <path fill-opacity="0.35"
+                        d="M0,192L60,213.3C120,235,240,277,360,277.3C480,277,600,235,720,192C840,149,960,107,1080,122.7C1200,139,1320,213,1380,250.7L1440,288L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
+                    </path>
+                    <path fill-opacity="0.5"
+                        d="M0,160L60,181.3C120,203,240,245,360,229.3C480,213,600,139,720,138.7C840,139,960,213,1080,229.3C1200,245,1320,203,1380,181.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
+                    </path>
+                    <path fill-opacity="0.2"
+                        d="M0,224L60,197.3C120,171,240,117,360,117.3C480,117,600,171,720,186.7C840,203,960,181,1080,186.7C1200,192,1320,224,1380,240L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
+                    </path>
+                </svg>
+                <p>Powered by <a href='https://cli.doctave.com' target='_blank'>Doctave</a></p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/assets/katex.js?v=1687162513"></script>
+    <script type="text/javascript" src="/assets/mermaid.js?v=1687162513"></script>
+    <script type="text/javascript" src="/assets/elasticlunr.js?v=1687162513"></script>
+    <script type="text/javascript" src="/assets/prism.js?v=1687162513"></script>
+    <script type="text/javascript" src="/assets/doctave-app.js?v=1687162513"></script>
+
+    
+</body>
+
+</html>

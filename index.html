@@ -1,0 +1,321 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Drupal 10 Documentation Made Simple</title>
+    <meta name="description" content="Documentation for Drupal 10 Documentation Made Simple">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/assets/normalize.css?v=1687162513"
+        media="screen" />
+    <link rel="stylesheet" type="text/css" href="/assets/doctave-style.css?v=1687162513"
+        media="screen" />
+    <link rel="stylesheet" type="text/css" href="/assets/katex.css?v=1687162513" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/assets/prism-ghcolors.css?v=1687162513"
+        media="screen" />
+
+    <script>
+        var DOCTAVE_TIMESTAMP = "1687162513";
+        var BASE_PATH = "/";
+        var color = localStorage.getItem('doctave-color')
+
+        if (color === 'dark') {
+            document.getElementsByTagName('html')[0].classList.remove('light');
+            document.getElementsByTagName('html')[0].classList.add('dark');
+        } else {
+            document.getElementsByTagName('html')[0].classList.remove('dark');
+            document.getElementsByTagName('html')[0].classList.add('light');
+        }
+    </script>
+
+    
+</head>
+
+<body>
+    <label for='menu-toggle-switch' class='menu-toggle-button'>
+        ☰
+    </label>
+    <input type="checkbox" id="menu-toggle-switch" value='0' />
+    <div class='page'>
+        <div class='header'>
+            <div class='logo'>
+                
+                <h2 class='project-name'>
+                    <a href="/">
+                        Drupal 10 Documentation Made Simple
+                    </a>
+                </h2>
+            </div>
+            <div class='search'>
+                <form id='search-form'>
+    <input type='text' id='search-box' autocomplete="off" placeholder="Search..."></input>
+    <span class='search-icon'>S</span>
+    <ul id='search-results'></ul>
+</form>
+
+            </div>
+            <div class='header-dummy-right'>
+            </div>
+        </div>
+        <div class='container'>
+            <div class='sidebar-left'>
+                <nav class='site-nav'>
+    <ul>
+        
+            <li><a href="/configuration">Configuration</a></li>
+            
+        
+            <li><a href="/controllers">Controllers in Drupal</a></li>
+            
+        
+            <li><a href="/lifecycle">Introduction to Drupal</a></li>
+            
+        
+            <li><a href="/middleware">Middleware in Drupal</a></li>
+            
+        
+            <li><a href="/routing">Routing in Drupal</a></li>
+            
+        
+            <li><a href="/structure">Structure</a></li>
+            
+        
+    </ul>
+    <span id='light-dark-mode-switch'>
+        <svg xmlns="http://www.w3.org/2000/svg" id="dark-mode-icon" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+        </svg>
+
+        <svg xmlns="http://www.w3.org/2000/svg" id="light-mode-icon" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" />
+        </svg>
+    </span>
+</nav>
+
+            </div>
+            <div class='doctave-content'>
+                <h1 id="introduction-to-drupal">Introduction to Drupal</h1>
+<p>Welcome to the immersive journey into Drupal, an extraordinary open-source content management system (CMS) built in PHP. Our comprehensive documentation takes you by the hand, unraveling the core concepts, features, and components of Drupal in an easily understandable manner. With this user-friendly guide, you'll gain profound insights into Drupal's architecture, empowering you to confidently embark on website development with Drupal's flexible and robust capabilities. Get ready to unleash your creativity and harness the true potential of Drupal!</p>
+<h2 id="meet-drupal">Meet Drupal</h2>
+<h3 id="why-choose-drupal?">Why Choose Drupal?</h3>
+<ul>
+<li>Flexibility and Scalability: Drupal's modular architecture allows you to build websites of any size or complexity, from simple blogs to enterprise-level applications.</li>
+<li>Extensive Module Ecosystem: Drupal offers a vast collection of modules that provide ready-made functionality, allowing you to extend and customize your site without reinventing the wheel.</li>
+<li>Robust Content Management: Drupal excels at managing structured content, including complex data models, taxonomies, and relationships.</li>
+<li>Community and Support: Drupal has a large and active community of developers and users who contribute to its growth and provide support through forums, documentation, and events.</li>
+</ul>
+<h3 id="key-features-of-drupal">Key Features of Drupal</h3>
+<ul>
+<li>
+<p>Content Management: Create, edit, and organize content with ease using Drupal's intuitive admin interface.</p>
+</li>
+<li>
+<p>User Management: Manage user accounts, roles, and permissions to control access and permissions.</p>
+</li>
+<li>
+<p>Theming and Front-end Flexibility: Customize the look and feel of your site using Drupal's powerful theming system and responsive design capabilities.</p>
+</li>
+<li>
+<p>Extensibility and Modularity: Extend Drupal's functionality by leveraging thousands of contributed modules or by developing your own custom modules.</p>
+</li>
+<li>
+<p>Scalability and Performance: Drupal is built to handle high-traffic websites and can scale to meet the demands of your growing site.</p>
+</li>
+<li>
+<p>Security: Drupal prioritizes security and follows best practices to ensure a secure web environment.</p>
+</li>
+<li>
+<p>Multilingual Support: Create multilingual websites with built-in translation capabilities.</p>
+</li>
+<li>
+<p>Accessibility: Drupal is committed to accessibility standards, ensuring that your website is usable by everyone.</p>
+</li>
+</ul>
+<h2 id="setting-up-your-environment">Setting Up Your Environment</h2>
+<h3 id="system-requirements">System Requirements</h3>
+<p>Before installing Drupal 9.x or 10.x, ensure that your system meets the following requirements:</p>
+<ul>
+<li>Web server (e.g., Apache, Nginx)</li>
+<li>PHP 7.4 or later</li>
+<li>MySQL 5.7.8 or later, or MariaDB 10.3.7 or later, or PostgreSQL 10 or later</li>
+<li>Composer (PHP package manager)</li>
+</ul>
+<blockquote>
+<p><strong><em>NOTE:</em></strong>
+These requirements specifically apply to Drupal versions 9.x and 10.x. If you are installing an earlier version of Drupal, please refer to the respective documentation for the appropriate system requirements.</p>
+<ol>
+<li>Drupal 10 requires at least PHP 8.1. PHP 8.1.6 is recommended.</li>
+<li>Drupal 9.4 dropped official support for PHP 7.3. Sites on PHP 7.3 may still be installed and updated to Drupal 9.4 (with a warning), but their security coverage is not guaranteed unless they update to at least PHP 7.4.</li>
+</ol>
+<p>Please make sure your system meets these requirements to ensure a smooth installation and optimal performance of Drupal 9.x or 10.x.</p>
+</blockquote>
+<h2 id="installing-drupal-on-macos,-windows,-and-linux">Installing Drupal on macOS, Windows, and Linux</h2>
+<p>To install Drupal on macOS, Windows, or Linux, follow these general steps:</p>
+<ol>
+<li>
+<p><strong>System Requirements</strong>: Before installing Drupal, ensure that your system meets the minimum requirements. Refer to the System Requirements section for more information.</p>
+</li>
+<li>
+<p><strong>Install and Configure Web Server and PHP</strong>: Set up and configure a web server (such as Apache or Nginx) and PHP on your operating system. Refer to the respective documentation for your specific operating system on how to install and configure these components.</p>
+</li>
+<li>
+<p><strong>Install Composer</strong>: Install Composer, the PHP package manager, on your system. Composer is required to manage Drupal's dependencies and facilitate the installation process.</p>
+</li>
+<li>
+<p><strong>Create a New Drupal Project</strong>: Use Composer to create a new Drupal project. Open your terminal or command prompt and run the following command:</p>
+<pre><code>composer create-project drupal/recommended-project mydrupal
+</code></pre>
+<p>This command will create a new Drupal project in a directory named "<code>mydrupal</code>" (you can change this to your preferred directory name).</p>
+</li>
+<li>
+<p><strong>Set Up a Virtual Host</strong>: Configure a virtual host in your web server configuration that points to the "web" directory of your Drupal installation. This step may vary depending on your web server and operating system. Refer to the documentation of your specific web server for instructions on setting up a virtual host.</p>
+</li>
+<li>
+<p><strong>Complete the Drupal Installation</strong>: Access your site through a web browser by visiting the configured virtual host (e.g., http://mydrupal.local). Follow the on-screen instructions to complete the Drupal installation process. During the installation, you will need to provide database credentials and configure the site's initial settings.</p>
+</li>
+</ol>
+<p>By following these steps, you can install Drupal on macOS, Windows, or Linux. The general process remains the same, but make sure to refer to the specific documentation for your web server and operating system for any platform-specific instructions or configurations.</p>
+<h2 id="optimizing-and-securing-your-drupal-site">Optimizing and Securing Your Drupal Site</h2>
+<h3 id="performance-optimization-techniques">Performance Optimization Techniques</h3>
+<ul>
+<li>Caching Strategies: Configure caching to improve the performance of your Drupal site.</li>
+<li>Image Optimization: Optimize images to reduce file size and improve page load times.</li>
+<li>Database Optimization: Optimize your database queries and configuration for better performance.</li>
+</ul>
+<h3 id="caching-strategies-in-drupal">Caching Strategies in Drupal</h3>
+<ul>
+<li>Page Caching: Enable and configure Drupal's built-in page caching mechanism.</li>
+<li>Block Caching: Control block caching to improve performance for dynamic content.</li>
+<li>External Caching: Explore options for utilizing external caching systems, such as Varnish or CDNs.</li>
+</ul>
+<h3 id="implementing-security-best-practices">Implementing Security Best Practices</h3>
+<ul>
+<li>User Authentication: Implement strong password policies and enforce secure user authentication.</li>
+<li>Security Updates: Stay updated with the latest security releases and apply patches promptly.</li>
+<li>Secure Coding Practices: Follow Drupal's coding standards and security best practices to prevent common vulnerabilities.</li>
+</ul>
+<h2 id="maintenance-and-troubleshooting">Maintenance and Troubleshooting</h2>
+<h3 id="managing-updates-and-upgrades">Managing Updates and Upgrades</h3>
+<ul>
+<li>Updating Drupal Core: Learn how to update Drupal core to the latest stable version.</li>
+<li>Module Updates: Update contributed modules to benefit from bug fixes and new features.</li>
+<li>Upgrading Drupal: Understand the process of upgrading your Drupal site from one major version to another.</li>
+</ul>
+<h3 id="debugging-and-troubleshooting-drupal">Debugging and Troubleshooting Drupal</h3>
+<ul>
+<li>Debugging Techniques: Learn how to debug and troubleshoot common issues in Drupal using logging, error messages, and debugging tools.</li>
+<li>Site Audit and Performance Monitoring: Perform regular site audits and monitor performance to identify and resolve issues.</li>
+</ul>
+<h3 id="drupal-community-and-support-resources">Drupal Community and Support Resources</h3>
+<ul>
+<li>Drupal Community: Engage with the Drupal community through forums, events, and user groups</li>
+</ul>
+<p>.</p>
+<ul>
+<li>Documentation and Online Resources: Access online documentation, tutorials, and resources to enhance your Drupal skills.</li>
+<li>Support Channels: Seek assistance and support from the Drupal community and professional support services when needed.</li>
+</ul>
+<p>Congratulations! You have completed the detailed introduction to Drupal. This documentation provides a solid foundation to begin building websites using Drupal's powerful features and flexible architecture. Explore further documentation, engage with the Drupal community, and continue learning to unlock the full potential of Drupal for your projects. Happy Drupal development!</p>
+
+            </div>
+            <div class='sidebar-right'>
+                <div class='page-nav' id='page-nav'>
+                    <p class='page-nav-header'>On this page</p>
+                    <ul>
+                        
+                        <li class='page-nav-level-1'>
+                            <a href='#introduction-to-drupal'>Introduction to Drupal</a>
+                        </li>
+                        
+                        <li class='page-nav-level-2'>
+                            <a href='#meet-drupal'>Meet Drupal</a>
+                        </li>
+                        
+                        <li class='page-nav-level-3'>
+                            <a href='#why-choose-drupal?'>Why Choose Drupal?</a>
+                        </li>
+                        
+                        <li class='page-nav-level-3'>
+                            <a href='#key-features-of-drupal'>Key Features of Drupal</a>
+                        </li>
+                        
+                        <li class='page-nav-level-2'>
+                            <a href='#setting-up-your-environment'>Setting Up Your Environment</a>
+                        </li>
+                        
+                        <li class='page-nav-level-3'>
+                            <a href='#system-requirements'>System Requirements</a>
+                        </li>
+                        
+                        <li class='page-nav-level-2'>
+                            <a href='#installing-drupal-on-macos,-windows,-and-linux'>Installing Drupal on macOS, Windows, and Linux</a>
+                        </li>
+                        
+                        <li class='page-nav-level-2'>
+                            <a href='#optimizing-and-securing-your-drupal-site'>Optimizing and Securing Your Drupal Site</a>
+                        </li>
+                        
+                        <li class='page-nav-level-3'>
+                            <a href='#performance-optimization-techniques'>Performance Optimization Techniques</a>
+                        </li>
+                        
+                        <li class='page-nav-level-3'>
+                            <a href='#caching-strategies-in-drupal'>Caching Strategies in Drupal</a>
+                        </li>
+                        
+                        <li class='page-nav-level-3'>
+                            <a href='#implementing-security-best-practices'>Implementing Security Best Practices</a>
+                        </li>
+                        
+                        <li class='page-nav-level-2'>
+                            <a href='#maintenance-and-troubleshooting'>Maintenance and Troubleshooting</a>
+                        </li>
+                        
+                        <li class='page-nav-level-3'>
+                            <a href='#managing-updates-and-upgrades'>Managing Updates and Upgrades</a>
+                        </li>
+                        
+                        <li class='page-nav-level-3'>
+                            <a href='#debugging-and-troubleshooting-drupal'>Debugging and Troubleshooting Drupal</a>
+                        </li>
+                        
+                        <li class='page-nav-level-3'>
+                            <a href='#drupal-community-and-support-resources'>Drupal Community and Support Resources</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class='wave-container'>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                    <path fill-opacity="0.35"
+                        d="M0,192L60,213.3C120,235,240,277,360,277.3C480,277,600,235,720,192C840,149,960,107,1080,122.7C1200,139,1320,213,1380,250.7L1440,288L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
+                    </path>
+                    <path fill-opacity="0.5"
+                        d="M0,160L60,181.3C120,203,240,245,360,229.3C480,213,600,139,720,138.7C840,139,960,213,1080,229.3C1200,245,1320,203,1380,181.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
+                    </path>
+                    <path fill-opacity="0.2"
+                        d="M0,224L60,197.3C120,171,240,117,360,117.3C480,117,600,171,720,186.7C840,203,960,181,1080,186.7C1200,192,1320,224,1380,240L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
+                    </path>
+                </svg>
+                <p>Powered by <a href='https://cli.doctave.com' target='_blank'>Doctave</a></p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/assets/katex.js?v=1687162513"></script>
+    <script type="text/javascript" src="/assets/mermaid.js?v=1687162513"></script>
+    <script type="text/javascript" src="/assets/elasticlunr.js?v=1687162513"></script>
+    <script type="text/javascript" src="/assets/prism.js?v=1687162513"></script>
+    <script type="text/javascript" src="/assets/doctave-app.js?v=1687162513"></script>
+
+    
+</body>
+
+</html>
